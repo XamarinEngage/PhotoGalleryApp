@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PhotoGalleryApp"
+             x:Class="PhotoGalleryApp.MainPage">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="New Photo"  Clicked="NewPhotoClicked"/>
+    </ContentPage.ToolbarItems>
+   
+        <ScrollView>         
+
+            <ActivityIndicator x:Name="Loader" IsRunning="true" IsVisible="true"/>
+            <ListView x:Name="MainList" ItemSelected="Handle_ItemSelected" IsPullToRefreshEnabled="true" Refreshing="Handle_Refreshing"
+              SeparatorColor="Aqua" SeparatorVisibility="Default"  HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete Photo" Clicked="DeletePhoto_Clicked" IsDestructive="true"/>
+                                <MenuItem Text="New Photo" Clicked="NewPhotoClicked"/>
+                            </ViewCell.ContextActions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="*" />                                    
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Text="{Binding Id}" IsVisible="False" />
+                            <Image Grid.Column="0" Source="{Binding getImageSource}"  />
+                                <StackLayout Grid.Column="1">
+                                    <Label  Text="{Binding PhotoName}" FontAttributes="Bold"  TextColor="Blue" />
+                                    <Label  Text="{Binding DateTaken}" FontAttributes="Italic" TextColor="Blue"  Margin="2"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+      
+   
+
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PhotoGalleryApp.NewPhotoPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>              
+
+                <Image x:Name="FileImagePreview" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                <!--<Label Text="Name"/>-->
+                <Label x:Name="PhotoNameEntry"  IsEnabled="False"/>
+                <!--<Label Text="Phone"/>-->
+                <Label x:Name="DateTakenEntry" />
+                                
+                <Entry x:Name="ImageEntry" IsEnabled="False"/>
+                <Label x:Name="lblImage"/>
+                
+                <Button x:Name="btnImagePicker" Text="Select Image" Clicked="btnImagePicker_Clicked" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                
+                
+                <Button Text="Add Photo" Clicked="Handle_Clicked"/>
+
+                <!--<Picker Title="Select Image" TextColor="Azure" />-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
